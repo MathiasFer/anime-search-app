@@ -137,3 +137,18 @@ header button {
     cursor: pointer;
     margin-bottom: 10px;
 }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .card img {
+        height: 180px;
+    }
+
+    .login-container {
+        margin: 50px 20px;
+    }
+
+    body {
+        padding: 10px;
+    }
+}
