@@ -16,3 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+const searchBtn = document.getElementById("searchBtn");
+
+if (searchBtn) {
+    searchBtn.addEventListener("click", () => {
+        const query = document.getElementById("searchInput").value.trim();
+
+        if (!query) {
+            alert("Escribe algo para buscar");
+            return;
+        }
+
+        console.log("Buscando:", query);
+    });
+}
