@@ -38,7 +38,13 @@ if (searchBtn) {
             const data = await response.json();
 
             console.log("Data completa:", data);
-            renderResults(data.data);
+            const isMobile = window.innerWidth <= 768;
+
+            const limitedResults = isMobile
+                ? data.data.slice(0, 3)
+                : data.data.slice(0, 5);
+
+            renderResults(limitedResults);
 
         } catch (error) {
             console.error("Error:", error);
