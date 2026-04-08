@@ -73,3 +73,19 @@ function renderResults(animes) {
         });
     });
 }
+const detailContainer = document.getElementById("detailContainer");
+
+if (detailContainer) {
+    const anime = JSON.parse(localStorage.getItem("selectedAnime"));
+
+    if (anime) {
+        detailContainer.innerHTML = `
+      <h2>${anime.title}</h2>
+      <img src="${anime.images.jpg.image_url}" alt="${anime.title}">
+      <p>${anime.synopsis || "Sin descripción"}</p>
+    `;
+    }
+}
+function goBack() {
+    window.location.href = "search.html";
+}
