@@ -56,7 +56,9 @@ function renderResults(animes) {
 
         card.innerHTML = `
       <h3>${anime.title}</h3>
-      <img src="${anime.images.jpg.image_url}" alt="${anime.title}">`;
+      <img src="${anime.images.jpg.image_url}" alt="${anime.title}">
+      <p>${anime.synopsis ? anime.synopsis.substring(0, 100) + "..." : "Sin descripción"}</p>
+    `;
 
         resultsContainer.appendChild(card);
     });
