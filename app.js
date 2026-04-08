@@ -16,10 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
 const searchBtn = document.getElementById("searchBtn");
 
 if (searchBtn) {
-    searchBtn.addEventListener("click", () => {
+    searchBtn.addEventListener("click", async () => {
         const query = document.getElementById("searchInput").value.trim();
 
         if (!query) {
@@ -27,6 +28,20 @@ if (searchBtn) {
             return;
         }
 
-        console.log("Buscando:", query);
+        try {
+            console.log("Buscando:", query);
+
+            const response = await fetch(`https://api.jikan.moe/v4/anime?q=${query}`);
+
+            console.log("Response completa:", response);
+
+            const data = await response.json();
+
+            console.log("Data completa:", data);
+            console.log("Solo resultados:", data.data);
+
+        } catch (error) {
+            console.error("Error:", error);
+        }
     });
 }
