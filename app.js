@@ -51,9 +51,13 @@ function renderResults(animes) {
     resultsContainer.innerHTML = "";
 
     animes.forEach(anime => {
-        const item = document.createElement("p");
-        item.textContent = anime.title;
+        const card = document.createElement("div");
+        card.classList.add("card");
 
-        resultsContainer.appendChild(item);
+        card.innerHTML = `
+      <h3>${anime.title}</h3>
+      <img src="${anime.images.jpg.image_url}" alt="${anime.title}">`;
+
+        resultsContainer.appendChild(card);
     });
 }
