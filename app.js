@@ -38,10 +38,22 @@ if (searchBtn) {
             const data = await response.json();
 
             console.log("Data completa:", data);
-            console.log("Solo resultados:", data.data);
+            renderResults(data.data);
 
         } catch (error) {
             console.error("Error:", error);
         }
+    });
+}
+const resultsContainer = document.getElementById("results");
+
+function renderResults(animes) {
+    resultsContainer.innerHTML = "";
+
+    animes.forEach(anime => {
+        const item = document.createElement("p");
+        item.textContent = anime.title;
+
+        resultsContainer.appendChild(item);
     });
 }
