@@ -67,5 +67,9 @@ function renderResults(animes) {
     `;
 
         resultsContainer.appendChild(card);
+        card.addEventListener("click", () => {
+            localStorage.setItem("selectedAnime", JSON.stringify(anime));
+            window.location.href = "detail.html";
+        });
     });
 }
