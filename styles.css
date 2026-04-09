@@ -74,8 +74,16 @@ body {
 /* CARDS */
 .results-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
+    /* 5 en escritorio */
     gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .results-container {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 en móvil */
+    }
 }
 
 .card {
